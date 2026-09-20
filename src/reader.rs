@@ -127,19 +127,21 @@ pub fn print_party(save: &[u8]) -> io::Result<()> {
 
         println!("\n--- Moves ---");
 
+
         for slot in 0..4 {
+            let move_id = moves[slot];
             let remaining_pp = pp[slot] & 0x3F;
             let pp_ups = pp[slot] >> 6;
 
             println!(
-                "Move {}: ID {} | PP {} | PP Ups {}",
+                "Move {}: {} (ID {}) | PP {} | PP Ups {}",
                 slot + 1,
-                moves[slot],
+                crate::pokemon::move_name(move_id),
+                move_id,
                 remaining_pp,
                 pp_ups
             );
         }
-
         println!("\n--- Experience ---");
         println!("Total EXP: {}", experience);
         println!("HP stat EXP: {}", hp_exp);
