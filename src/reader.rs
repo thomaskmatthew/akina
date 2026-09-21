@@ -54,7 +54,7 @@ pub fn print_party(save: &[u8]) -> io::Result<()> {
         let level = pokemon[0x21];
         let box_level = pokemon[0x03];
 
-        let name = crate::pokemon::species_name(species);
+        let name = crate::helper::species_name(species);
 
         // Health and status
         let current_hp = read_u16(pokemon, 0x01);
@@ -136,7 +136,7 @@ pub fn print_party(save: &[u8]) -> io::Result<()> {
             println!(
                 "Move {}: {} (ID {}) | PP {} | PP Ups {}",
                 slot + 1,
-                crate::pokemon::move_name(move_id),
+                crate::helper::move_name(move_id),
                 move_id,
                 remaining_pp,
                 pp_ups

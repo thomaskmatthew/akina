@@ -2,6 +2,8 @@
 mod save;
 mod reader;
 mod pokemon;
+mod helper;
+mod interface;
 
 use std::fs;
 use std::io;
