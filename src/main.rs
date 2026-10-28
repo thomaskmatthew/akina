@@ -23,6 +23,8 @@ fn main() -> io::Result<()> {
 
         reader::print_party(&data)?;
     }
+    let data = fs::read("saves/blue.sav")?;
+    interface::interface(&*data);
 
     Ok(())
 }

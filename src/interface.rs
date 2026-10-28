@@ -1,6 +1,6 @@
 use std::io::Write;
 
-pub fn interface() {
+pub fn interface(data: &[u8]) -> std::io::Result<()> {
 
 
 
@@ -15,7 +15,7 @@ pub fn interface() {
 
         match choice.as_str() {
             "1" => {
-                println!("> view current party");
+                crate::reader::print_party(data)?;
             }
 
             "2" => {
@@ -27,12 +27,14 @@ pub fn interface() {
             }
 
             "4" => {
-                break;
+               break;
             }
 
             _ => println!("Invalid choice"),
         }
     }
+
+    Ok(())
 
 
 }
